@@ -20,4 +20,13 @@ kubectl get pods
 ```bash
 helm upgrade --install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace --wait
 ```
+# Find the Prometheus Pod Name
+```
+kubectl --namespace monitoring get pods -l "release=prometheus"
+```
+#   Port Forward to Local Machine
+```
+kubectl --namespace monitoring port-forward prometheus-prometheus-server-<pod_name> 9090:9090
+```
+# Access Prometheus in Your Browser
 
