@@ -5,7 +5,9 @@ Navigate to the `terraform/` directory and initialize Terraform:
 ```bash
 terraform init
 terraform apply
-
+##access the new EKS cluster
+```bash
+aws eks --region <region> update-kubeconfig --name <cluster-name>
 
 
 
