@@ -4,3 +4,11 @@ Navigate to the `terraform/` directory and initialize Terraform:
 # mkdir node-js-application
 ```bash
 cd node-js-application
+### 2. Build the Docker Image for the Node.js Application
+```bash
+docker build -t node-web-app .
+Once the image is built, you can tag it with your Docker Hub repository name and push it to Docker Hub:
+```bash
+docker tag nodejs-web-app aniket329/node-web-app:latest
+docker push aniket329/node-web-app:latest
+
