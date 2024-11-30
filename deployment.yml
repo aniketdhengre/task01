@@ -1,0 +1,35 @@
+kind: Deployment
+metadata:
+  name: node-web-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-web-app
+  template:
+    metadata:
+      labels:
+        app: node-web-app
+    spec:
+      containers:
+      - name: node-web-app
+        image: aniket329/node-web-app:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: "production"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-web-app-service
+spec:
+  selector:
+    app: node-web-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: LoadBalancer
+
