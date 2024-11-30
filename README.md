@@ -10,6 +10,15 @@ terraform apply
 ```bash
 aws eks --region <region> update-kubeconfig --name <cluster-name>
 ```
+### 2. Build the Docker Image for the Node.js Application
+
+Navigate to the root directory of the project where the `Dockerfile` is located, and build the Docker image:
+
+```bash
+docker build -t node-web-app .
+docker tag nodejs-web-app aniket329/nodejs-web-app:latest
+docker push aniket329/nodejs-web-app:latest
+```
 # Apply the Prometheus deployment configuration to your cluster
 ```bash
 kubectl apply -f deployment.yml
