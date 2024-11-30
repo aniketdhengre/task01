@@ -29,4 +29,3 @@ kubectl --namespace monitoring get pods -l "release=prometheus"
 kubectl --namespace monitoring port-forward prometheus-prometheus-server-<pod_name> 9090:9090
 ```
 # Access Prometheus in Your Browser
-
