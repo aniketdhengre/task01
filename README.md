@@ -24,14 +24,18 @@ docker push aniket329/node-web-app:latest
 kubectl apply -f deployment.yml
 kubectl get pods
 ```
-# Prometheus Setup and Access
+# Prometheus Setup and Access add repo
+```bash
+   helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+   helm repo update
+```
 ## 1. Install Prometheus with Helm
 ```bash
 helm upgrade --install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace --wait
 ```
-# Find the Prometheus Pod Name
+# Verify the Prometheus Installation
 ```
-kubectl --namespace monitoring get pods -l "release=prometheus"
+kubectl get pods -n default
 ```
 #   Port Forward to Local Machine
 ```
