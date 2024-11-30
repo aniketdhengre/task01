@@ -15,3 +15,9 @@ aws eks --region <region> update-kubeconfig --name <cluster-name>
 kubectl apply -f deployment.yml
 kubectl get pods
 ```
+# Prometheus Setup and Access
+## 1. Install Prometheus with Helm
+```bash
+helm upgrade --install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace --wait
+```
+
