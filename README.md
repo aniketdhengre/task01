@@ -16,8 +16,8 @@ Navigate to the root directory of the project where the `Dockerfile` is located,
 
 ```bash
 docker build -t node-web-app .
-docker tag nodejs-web-app aniket329/nodejs-web-app:latest
-docker push aniket329/nodejs-web-app:latest
+docker tag nodejs-web-app aniket329/node-web-app:latest
+docker push aniket329/node-web-app:latest
 ```
 # Apply the Prometheus deployment configuration to your cluster
 ```bash
