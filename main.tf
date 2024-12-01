@@ -7,19 +7,17 @@ terraform {
   }
 }
 
-# Configure the AWS Provider
+
 provider "aws" {
   region = "us-east-1"
 }
 
-# Define Security Group for EKS Nodes
 resource "aws_security_group" "eks_node_security_group" {
   name        = "eks-node-sg"
   description = "Allow inbound traffic for Node.js, Prometheus, HTTP, and HTTPS"
 
   vpc_id = module.vpc.vpc_id
 
-  # Allow inbound traffic on ports for Node.js, Prometheus, HTTP, and HTTPS
   ingress {
     from_port   = 3000
     to_port     = 3000
@@ -48,7 +46,7 @@ resource "aws_security_group" "eks_node_security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # Allow all outbound traffic
+
   egress {
     from_port   = 0
     to_port     = 0
